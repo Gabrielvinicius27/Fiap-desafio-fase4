@@ -1,0 +1,57 @@
+
+version: 2
+
+models:
+  - name: silver_listings
+    description: "accurated listings"
+    columns:
+      - name: id
+        description: "The primary key for this table"
+        tests:
+          - unique
+          - not_null
+      - name: name
+        description: "Name of the listing"
+      - name: price
+        description: "daily price in local currency. Note, $ sign may be used despite locale"
+      - name: host_id
+        description: "ID do host"
+      - name: license
+        description: ""
+      - name: latitude
+        description: "Uses the World Geodetic System (WGS84) projection for latitude and longitude."
+      - name: host_name
+        description: "Nome do host"
+      - name: longitude
+        description: "Uses the World Geodetic System (WGS84) projection for latitude and longitude."
+      - name: room_type
+        description: "Tipo de quarto"
+      - name: last_review
+        description: "The date of the last/newest review"
+      - name: neighbourhood
+        description: "The neighbourhood as geocoded using the latitude and longitude against neighborhoods as defined by open or public digital shapefiles."
+      - name: minimum_nights
+        description: "minimum number of night stay for the listing (calendar rules may be different)"
+      - name: availability_365
+        description: "avaliability_x. The availability of the listing x days in the future as determined by the calendar. Note a listing may be available because it has been booked by a guest or blocked by the host."
+      - name: number_of_reviews
+        description: "The number of reviews the listing has"
+      - name: reviews_per_month
+        description: "The number of reviews the listing has per month"
+      - name: neighbourhood_group
+        description: "The neighbourhood group as geocoded using the latitude and longitude against neighborhoods as defined by open or public digital shapefiles."
+      - name: number_of_reviews_ltm
+        description: "The number of reviews the listing has (in the last 12 months)"
+      - name: calculated_host_listings_count
+        description: "The number of listings the host has in the current scrape, in the city/region geography."
+  
+  - name: gold_vizinhanca_numbers
+    description: Tabela com agrupamento de acomodações e preços por vizinhança
+    columns:
+      - name: neighbourhood
+        description: "Nome da vizinhança"
+      - name: qtde_acomodacoes
+        description: "quantidade de acomodações"
+      - name: media_preco
+        description: "média de preços"
+        

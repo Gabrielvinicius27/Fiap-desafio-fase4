@@ -1,0 +1,40 @@
+
+version: 2
+
+models:
+  - name: gold_reviews_per_neighbourhood
+    description: "Quantidade de reviews por mês em cada bairro"
+    columns:
+      - name: bairro
+        description: "Nome do bairro"
+      - name: mes
+        description: "Mês em que o review aconteceu"
+      - name: qtde_reviews
+        description: "Quantidade de reviews naquele mês e bairro"
+      - name: qtde_entire_home
+        description: "Quantidade de locações de casas/apartamentos inteiros"
+      - name: qtde_private_room
+        description: "Quantidade de locações de quartos privados"
+      - name: qtde_hotel_room
+        description: "Quantidade de locações de quartos de hotel"
+      - name: qtde_shared_room
+        description: "Quantidade de locações de quartos compartilhados"
+  
+  - name: gold_covid_numbers_per_neighbourhood
+    description: Quantidade de casos confirmados de COVID-19 por mês em cada bairro
+    columns:
+      - name: bairro
+        description: "Nome do bairro"
+      - name: mes
+        description: "Mês em que o caso foi notificado"
+      - name: qtde_casos
+        description: "Quantidade de casos confirmados naquele mês e bairro"
+      - name: qtde_obitos
+        description: "Quantidade de obitos naquele mês e bairro"
+      - name: qtde_recuperados
+        description: "Quantidade de pessoas recuperadas naquele mês e bairro"
+      - name: qtde_ativos
+        description: "Quantidade de pessoas que continuam com covid ou sem retorno de evolucao naquele mês e bairro"
+      - name: qtde_casos_graves
+        description: "Quantidade de casos graves naquele mês e bairro"
+        

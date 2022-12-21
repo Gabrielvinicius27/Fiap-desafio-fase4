@@ -1,0 +1,175 @@
+
+
+============================== 2022-12-08 19:28:07.039271 | f057f77e-f7bd-4193-ae8f-4e0bd0a08c29 ==============================
+[0m19:28:07.039271 [info ] [MainThread]: Running with dbt=1.3.1
+[0m19:28:07.040272 [debug] [MainThread]: running dbt with arguments {'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': 'C:\\Users\\Bruna\\.dbt', 'send_anonymous_usage_stats': True, 'event_buffer_size': 100000, 'quiet': False, 'no_print': False, 'skip_profile_setup': False, 'which': 'init', 'indirect_selection': 'eager'}
+[0m19:28:07.040272 [debug] [MainThread]: Tracking: tracking
+[0m19:28:07.042273 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B3BD390040>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B3BD385FA0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B3BD385E80>]}
+[0m19:28:07.043277 [info ] [MainThread]: Creating dbt configuration folder at C:\Users\Bruna\.dbt
+[0m19:28:30.383701 [debug] [MainThread]: Starter project path: C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\dbt\include\starter_project
+[0m19:28:37.189207 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B3BD385730>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B3BD385640>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001B3BD385760>]}
+[0m19:28:37.190206 [debug] [MainThread]: Flushing usage events
+[0m19:28:37.842068 [error] [MainThread]: Encountered an error:
+'NoneType' object has no attribute 'message_types_by_name'
+[0m19:28:37.860457 [error] [MainThread]: Traceback (most recent call last):
+  File "C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\dbt\main.py", line 135, in main
+    results, succeeded = handle_and_check(args)
+  File "C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\dbt\main.py", line 198, in handle_and_check
+    task, res = run_from_args(parsed)
+  File "C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\dbt\main.py", line 245, in run_from_args
+    results = task.run()
+  File "C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\dbt\task\init.py", line 332, in run
+    self.create_profile_from_target(adapter, profile_name=project_name)
+  File "C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\dbt\task\init.py", line 200, in create_profile_from_target
+    load_plugin(adapter)
+  File "C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\dbt\adapters\factory.py", line 201, in load_plugin
+    return FACTORY.load_plugin(name)
+  File "C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\dbt\adapters\factory.py", line 56, in load_plugin
+    mod: Any = import_module("." + name, "dbt.adapters")
+  File "c:\python38\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\dbt\adapters\bigquery\__init__.py", line 1, in <module>
+    from dbt.adapters.bigquery.connections import BigQueryConnectionManager  # noqa
+  File "C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\dbt\adapters\bigquery\connections.py", line 12, in <module>
+    import google.cloud.bigquery
+  File "C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\google\cloud\bigquery\__init__.py", line 35, in <module>
+    from google.cloud.bigquery.client import Client
+  File "C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\google\cloud\bigquery\client.py", line 52, in <module>
+    import google.api_core.exceptions as core_exceptions
+  File "C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\google\api_core\exceptions.py", line 29, in <module>
+    from google.rpc import error_details_pb2
+  File "C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\google\rpc\error_details_pb2.py", line 39, in <module>
+    _RETRYINFO = DESCRIPTOR.message_types_by_name["RetryInfo"]
+AttributeError: 'NoneType' object has no attribute 'message_types_by_name'
+
+
+
+============================== 2022-12-08 19:33:02.975628 | c249fde4-4366-44da-b2f7-6d5c65a61d31 ==============================
+[0m19:33:02.975628 [info ] [MainThread]: Running with dbt=1.3.1
+[0m19:33:02.976629 [debug] [MainThread]: running dbt with arguments {'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': 'C:\\Users\\Bruna\\.dbt', 'send_anonymous_usage_stats': True, 'event_buffer_size': 100000, 'quiet': False, 'no_print': False, 'project_name': 'first_project', 'skip_profile_setup': False, 'which': 'init', 'indirect_selection': 'eager'}
+[0m19:33:02.976629 [debug] [MainThread]: Tracking: tracking
+[0m19:33:02.977630 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D76BE7F280>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D76BE7F400>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D76BE7F430>]}
+[0m19:33:02.979628 [debug] [MainThread]: Starter project path: C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\dbt\include\starter_project
+[0m19:33:07.748962 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D76BE7F370>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D76BEC8E50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000001D76BEC8EE0>]}
+[0m19:33:07.749962 [debug] [MainThread]: Flushing usage events
+[0m19:33:08.487691 [error] [MainThread]: Encountered an error:
+'NoneType' object has no attribute 'message_types_by_name'
+[0m19:33:08.495692 [error] [MainThread]: Traceback (most recent call last):
+  File "C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\dbt\main.py", line 135, in main
+    results, succeeded = handle_and_check(args)
+  File "C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\dbt\main.py", line 198, in handle_and_check
+    task, res = run_from_args(parsed)
+  File "C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\dbt\main.py", line 245, in run_from_args
+    results = task.run()
+  File "C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\dbt\task\init.py", line 332, in run
+    self.create_profile_from_target(adapter, profile_name=project_name)
+  File "C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\dbt\task\init.py", line 200, in create_profile_from_target
+    load_plugin(adapter)
+  File "C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\dbt\adapters\factory.py", line 201, in load_plugin
+    return FACTORY.load_plugin(name)
+  File "C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\dbt\adapters\factory.py", line 56, in load_plugin
+    mod: Any = import_module("." + name, "dbt.adapters")
+  File "c:\python38\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\dbt\adapters\bigquery\__init__.py", line 1, in <module>
+    from dbt.adapters.bigquery.connections import BigQueryConnectionManager  # noqa
+  File "C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\dbt\adapters\bigquery\connections.py", line 12, in <module>
+    import google.cloud.bigquery
+  File "C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\google\cloud\bigquery\__init__.py", line 35, in <module>
+    from google.cloud.bigquery.client import Client
+  File "C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\google\cloud\bigquery\client.py", line 52, in <module>
+    import google.api_core.exceptions as core_exceptions
+  File "C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\google\api_core\exceptions.py", line 29, in <module>
+    from google.rpc import error_details_pb2
+  File "C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\google\rpc\error_details_pb2.py", line 39, in <module>
+    _RETRYINFO = DESCRIPTOR.message_types_by_name["RetryInfo"]
+AttributeError: 'NoneType' object has no attribute 'message_types_by_name'
+
+
+
+============================== 2022-12-08 19:35:32.411967 | 073c0f02-3eb5-4750-943f-0fc483ae8ab4 ==============================
+[0m19:35:32.411967 [info ] [MainThread]: Running with dbt=1.3.1
+[0m19:35:32.412967 [debug] [MainThread]: running dbt with arguments {'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': 'C:\\Users\\Bruna\\.dbt', 'send_anonymous_usage_stats': True, 'event_buffer_size': 100000, 'quiet': False, 'no_print': False, 'project_name': 'first_project', 'skip_profile_setup': False, 'which': 'init', 'indirect_selection': 'eager'}
+[0m19:35:32.412967 [debug] [MainThread]: Tracking: tracking
+[0m19:35:32.413962 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019D4E7DF2E0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019D4E7DF460>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019D4E7DF340>]}
+[0m19:35:32.417647 [debug] [MainThread]: Starter project path: C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\dbt\include\starter_project
+[0m19:35:37.490107 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019D4E7DF280>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019D4E828E80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x0000019D4E828F10>]}
+[0m19:35:37.490107 [debug] [MainThread]: Flushing usage events
+[0m19:35:38.117684 [error] [MainThread]: Encountered an error:
+'NoneType' object has no attribute 'message_types_by_name'
+[0m19:35:38.123691 [error] [MainThread]: Traceback (most recent call last):
+  File "C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\dbt\main.py", line 135, in main
+    results, succeeded = handle_and_check(args)
+  File "C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\dbt\main.py", line 198, in handle_and_check
+    task, res = run_from_args(parsed)
+  File "C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\dbt\main.py", line 245, in run_from_args
+    results = task.run()
+  File "C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\dbt\task\init.py", line 332, in run
+    self.create_profile_from_target(adapter, profile_name=project_name)
+  File "C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\dbt\task\init.py", line 200, in create_profile_from_target
+    load_plugin(adapter)
+  File "C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\dbt\adapters\factory.py", line 201, in load_plugin
+    return FACTORY.load_plugin(name)
+  File "C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\dbt\adapters\factory.py", line 56, in load_plugin
+    mod: Any = import_module("." + name, "dbt.adapters")
+  File "c:\python38\lib\importlib\__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\dbt\adapters\bigquery\__init__.py", line 1, in <module>
+    from dbt.adapters.bigquery.connections import BigQueryConnectionManager  # noqa
+  File "C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\dbt\adapters\bigquery\connections.py", line 12, in <module>
+    import google.cloud.bigquery
+  File "C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\google\cloud\bigquery\__init__.py", line 35, in <module>
+    from google.cloud.bigquery.client import Client
+  File "C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\google\cloud\bigquery\client.py", line 52, in <module>
+    import google.api_core.exceptions as core_exceptions
+  File "C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\google\api_core\exceptions.py", line 29, in <module>
+    from google.rpc import error_details_pb2
+  File "C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\google\rpc\error_details_pb2.py", line 39, in <module>
+    _RETRYINFO = DESCRIPTOR.message_types_by_name["RetryInfo"]
+AttributeError: 'NoneType' object has no attribute 'message_types_by_name'
+
+
+
+============================== 2022-12-08 19:42:34.360626 | 9f0418d4-16ae-4314-bbc0-72f71e4a87ce ==============================
+[0m19:42:34.360626 [info ] [MainThread]: Running with dbt=1.3.1
+[0m19:42:34.361626 [debug] [MainThread]: running dbt with arguments {'write_json': True, 'use_colors': True, 'printer_width': 80, 'version_check': True, 'partial_parse': True, 'static_parser': True, 'profiles_dir': 'C:\\Users\\Bruna\\.dbt', 'send_anonymous_usage_stats': True, 'event_buffer_size': 100000, 'quiet': False, 'no_print': False, 'project_name': 'first_project', 'skip_profile_setup': False, 'which': 'init', 'indirect_selection': 'eager'}
+[0m19:42:34.362629 [debug] [MainThread]: Tracking: tracking
+[0m19:42:34.363629 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002276412F2E0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002276412F460>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002276412F340>]}
+[0m19:42:34.366626 [debug] [MainThread]: Starter project path: C:\Users\Bruna\AppData\Roaming\Python\Python38\site-packages\dbt\include\starter_project
+[0m19:44:32.590510 [info ] [MainThread]: Profile first_project written to C:\Users\Bruna\.dbt\profiles.yml using target's profile_template.yml and your supplied values. Run 'dbt debug' to validate the connection.
+[0m19:44:32.591513 [info ] [MainThread]: 
+Your new dbt project "first_project" was created!
+
+For more information on how to configure the profiles.yml file,
+please consult the dbt documentation here:
+
+  https://docs.getdbt.com/docs/configure-your-profile
+
+One more thing:
+
+Need help? Don't hesitate to reach out to us via GitHub issues or on Slack:
+
+  https://community.getdbt.com/
+
+Happy modeling!
+
+[0m19:44:32.594510 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002276412F0A0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002276412F1F0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x000002276412F460>]}
+[0m19:44:32.595513 [debug] [MainThread]: Flushing usage events
