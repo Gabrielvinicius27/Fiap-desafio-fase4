@@ -6,10 +6,11 @@ WITH covid_flags AS (
         CASE WHEN evolucao = "ATIVO" THEN 1 ELSE 0 END AS FLG_ATIVO,
         CASE WHEN sistema = "SIVEP" THEN 1 ELSE 0 END AS FLG_CASO_GRAVE,
     FROM
-        {{ ref('silver_covid_rj') }}
+        {{ ref('staging_covid') }}
 )
 SELECT
     bairro_resid_estadia AS bairro,
+    DATE_TRUNC(dt_notific, YEAR) AS ano,
     DATE_TRUNC(dt_notific, MONTH) AS mes,
     COUNT(*) as qtde_casos,
     SUM(FLG_OBITO) as qtde_obitos,
@@ -20,6 +21,8 @@ FROM
     covid_flags
 GROUP BY
     1,
-    2
+    2,
+    3
 ORDER BY
-    2
+    2,
+    3

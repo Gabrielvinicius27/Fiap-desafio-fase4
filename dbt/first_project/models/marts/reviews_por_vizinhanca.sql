@@ -6,7 +6,7 @@ WITH silver_listings_flags AS (
         CASE WHEN room_type = "Hotel room" THEN 1 ELSE 0 END AS FLG_HOTEL_ROOM,
         CASE WHEN room_type = "Shared room" THEN 1 ELSE 0 END AS FLG_SHARED_ROOM,
     FROM
-        {{ ref('silver_listings') }}   
+        {{ ref('staging_listings') }}   
 )
 SELECT
     neighbourhood AS bairro,
@@ -19,7 +19,7 @@ SELECT
 FROM
     silver_listings_flags
 INNER JOIN
-    {{ ref('silver_reviews') }}
+    {{ ref('staging_reviews') }}
 ON
     listing_id = id
 GROUP BY

@@ -1,8 +1,16 @@
-
 version: 2
+sources:
+  - name: bigquery
+    database: onyx-course-371018
+    schema: dataset
+    loader: airbyte
+    tables:
+      - name: listings
+      - name: reviews
+      - name: covid_rj
 
 models:
-  - name: silver_listings
+  - name: staging_listings
     description: "accurated listings"
     columns:
       - name: id
@@ -44,14 +52,42 @@ models:
         description: "The number of reviews the listing has (in the last 12 months)"
       - name: calculated_host_listings_count
         description: "The number of listings the host has in the current scrape, in the city/region geography."
-  
-  - name: gold_vizinhanca_numbers
-    description: Tabela com agrupamento de acomodações e preços por vizinhança
+
+  - name: staging_reviews
+    description: Data dos reviews em cada acomodação
     columns:
-      - name: neighbourhood
-        description: "Nome da vizinhança"
-      - name: qtde_acomodacoes
-        description: "quantidade de acomodações"
-      - name: media_preco
-        description: "média de preços"
-        
+      - name: date
+        description: "Data em que o review aconteceu, no formato yyyy-mm-dd"
+      - name: listing_id
+        description: "ID da acomodação, usado para fazer join com a tabela silver_listings"
+
+  - name: staging_covid
+    description: Dados individuais com perfil sociodemográfico, Rio de Janeiro
+    columns:
+      - name: sexo
+        description: "sexo do paciente, podendo ser M= masculino; F= feminino; ou N/D= sem informação."
+      - name: sistema
+        description: "sistema de origem do registro, podendo ser e-SUS para os casos leves e SIVEP-Gripe para os casos de internação e óbitos."
+      - name: evolucao
+        description: "evolução do caso, podendo ser ativo, óbito ou recuperado."
+      - name: raca_cor
+        description: "raça/cor do paciente."
+      - name: dt_notific
+        description: "data em que foi feita a notificação do caso, em formato yyyy-mm-dd."
+      - name: dt_evolucao
+        description: "data em que ocorreu a evolução do quadro, podendo ser a data de óbito ou a data de alta/cura, em formato yyyy-mm-dd."
+      - name: faixa_etaria
+        description: "faixa etária em que se encontra o paciente."
+      - name: dt_atualizacao
+        description: "data a que se referem os dados, em formato yyyy-mm-dd."
+      - name: dt_inicio_sintomas
+        description: "data relatada do início dos sintomas, em formato yyyy-mm-dd."
+      - name: bairro_resid_estadia
+        description: "bairro de residência ou estadia do paciente usando a lista oficial de bairros do município do Rio de Janeiro."
+      - name: ap_residencia_estadia
+        description: "Área de Planejamento em Saúde correspondente ao bairro de residência ou estadia do paciente."
+      - name: classificacao_final
+        description: "mostra a classificação dos casos. Casos confirmados são marcados como 'CONFIRMADOS'."
+
+  
+

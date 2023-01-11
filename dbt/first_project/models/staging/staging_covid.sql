@@ -6,16 +6,16 @@ with source_data as (
     UPPER(sexo) AS sexo,
     UPPER(sistema) AS sistema,
     UPPER(evolucao) AS evolucao,
-    UPPER(raca_cor) AS raca_cor,
+    REGEXP_REPLACE(NORMALIZE(UPPER(raca_cor), NFD), r'\pM', '') AS raca_cor,
     SAFE.PARSE_DATE('%m/%d/%Y', dt_notific) AS dt_notific,
     SAFE.PARSE_DATE('%m/%d/%Y', dt_evolucao) AS dt_evolucao,
     UPPER(faixa_etaria) AS faixa_etaria,
-    SAFE.PARSE_DATE('%m/%d/%Y', Data_atualizacao) AS Data_atualizacao,
+    SAFE.PARSE_DATE('%m/%d/%Y', Data_atualizacao) AS dt_atualizacao,
     SAFE.PARSE_DATE('%m/%d/%Y', dt_inicio_sintomas) AS dt_inicio_sintomas,
     REGEXP_REPLACE(NORMALIZE(UPPER(bairro_resid_estadia), NFD), r'\pM', '') AS bairro_resid_estadia,
     ap_residencia_estadia,
     UPPER(classificacao_final) AS classificacao_final
-    from `onyx-course-371018.dataset.covid_rj`
+    from {{ source('bigquery', 'covid_rj') }}
 )
 
 select *

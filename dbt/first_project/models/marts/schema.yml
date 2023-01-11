@@ -1,8 +1,17 @@
-
 version: 2
 
 models:
-  - name: gold_reviews_per_neighbourhood
+  - name: numeros_vizinhanca
+    description: Tabela com agrupamento de acomodações e preços por vizinhança
+    columns:
+      - name: neighbourhood
+        description: "Nome da vizinhança"
+      - name: qtde_acomodacoes
+        description: "quantidade de acomodações"
+      - name: media_preco
+        description: "média de preços"
+
+  - name: reviews_por_vizinhanca
     description: "Quantidade de reviews por mês em cada bairro"
     columns:
       - name: bairro
@@ -20,11 +29,13 @@ models:
       - name: qtde_shared_room
         description: "Quantidade de locações de quartos compartilhados"
   
-  - name: gold_covid_numbers_per_neighbourhood
+  - name: covid_por_vizinhanca
     description: Quantidade de casos confirmados de COVID-19 por mês em cada bairro
     columns:
       - name: bairro
         description: "Nome do bairro"
+      - name: ano
+        description: "Ano da notificação"
       - name: mes
         description: "Mês em que o caso foi notificado"
       - name: qtde_casos
@@ -37,4 +48,3 @@ models:
         description: "Quantidade de pessoas que continuam com covid ou sem retorno de evolucao naquele mês e bairro"
       - name: qtde_casos_graves
         description: "Quantidade de casos graves naquele mês e bairro"
-        
