@@ -1,29 +1,32 @@
-WITH silver_listings_flags AS (
-    SELECT 
-        *,
-        CASE WHEN room_type = "Entire home/apt" THEN 1 ELSE 0 END AS FLG_ENTIRE_HOME,
-        CASE WHEN room_type = "Private room" THEN 1 ELSE 0 END AS FLG_PRIVATE_ROOM,
-        CASE WHEN room_type = "Hotel room" THEN 1 ELSE 0 END AS FLG_HOTEL_ROOM,
-        CASE WHEN room_type = "Shared room" THEN 1 ELSE 0 END AS FLG_SHARED_ROOM,
+WITH listings_flags AS (
+    SELECT
+        id                                       AS listing_id,
+        neighbourhood                            AS bairro,
+        IF(room_type = "Entire home/apt" ,1 , 0) AS FLG_ENTIRE_HOME,
+        IF(room_type = "Private room"    ,1 , 0) AS FLG_PRIVATE_ROOM,
+        IF(room_type = "Hotel room"      ,1 , 0) AS FLG_HOTEL_ROOM,
+        IF(room_type = "Shared room"     ,1 , 0) AS FLG_SHARED_ROOM
     FROM
-        {{ ref('staging_listings') }}   
+        {{ ref('staging_listings') }}
+    WHERE
+        neighbourhood is not null AND
+        room_type is not null
 )
 SELECT
-    neighbourhood AS bairro,
-    DATE_TRUNC(date, MONTH) AS mes,
-    COUNT(*) as qtde_reviews,
-    SUM(FLG_ENTIRE_HOME) as qtde_entire_home,
-    SUM(FLG_PRIVATE_ROOM) as qtde_private_room,
-    SUM(FLG_HOTEL_ROOM) as qtde_hotel_room,
-    SUM(FLG_SHARED_ROOM) as qtde_shared_room,
+    f.bairro,
+    DATE_TRUNC(dt_notific, YEAR)  AS ano,
+    DATE_TRUNC(dt_notific, MONTH) AS mes,
+    COUNT(*)                      AS qtde_reviews,
+    SUM(f.FLG_ENTIRE_HOME)        AS qtde_entire_home,
+    SUM(f.FLG_PRIVATE_ROOM)       AS qtde_private_room,
+    SUM(f.FLG_HOTEL_ROOM)         AS qtde_hotel_room,
+    SUM(f.FLG_SHARED_ROOM)        AS qtde_shared_room
 FROM
-    silver_listings_flags
+    listings_flags AS f
 INNER JOIN
-    {{ ref('staging_reviews') }}
-ON
-    listing_id = id
+    {{ ref('staging_reviews') }} AS r 
+        ON r.listing_id = f.listing_id AND r.date >= "2020-01-01"
 GROUP BY
-    1,
-    2
+    f.bairro, ano, mes
 ORDER BY
-    2
+    mes;
