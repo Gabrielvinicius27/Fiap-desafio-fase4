@@ -1,5 +1,3 @@
--- vw_covid_por_vizinhanca
--- create or replace view `onyx-course-371018`.`dataset`.`covid_por_vizinhanca` AS
 SELECT
   bairro_resid_estadia                   AS bairro,
   DATE_TRUNC(dt_notific, YEAR)           AS ano,
