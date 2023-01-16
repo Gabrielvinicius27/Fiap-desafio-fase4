@@ -14,8 +14,8 @@ WITH listings_flags AS (
 )
 SELECT
     f.bairro,
-    DATE_TRUNC(dt_notific, YEAR)  AS ano,
-    DATE_TRUNC(dt_notific, MONTH) AS mes,
+    EXTRACT(YEAR FROM r.date)     AS ano,
+    EXTRACT(MONTH FROM r.date)    AS mes,
     COUNT(*)                      AS qtde_reviews,
     SUM(f.FLG_ENTIRE_HOME)        AS qtde_entire_home,
     SUM(f.FLG_PRIVATE_ROOM)       AS qtde_private_room,
